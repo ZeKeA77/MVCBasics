@@ -1,0 +1,96 @@
+﻿:root {
+    --bgColor: rgb(224, 215, 215);
+    --Colora: hsl(300, 50%, 7%);
+    --Colorb: hsl(232, 24%, 40%);
+    --Colorc: hsl(207, 57%, 65%);
+    --Colord: hsl(32, 13%, 71%);
+    --Colore: hsl(51, 22%, 76%);
+    --Colorf: hsl(33, 62%, 71%);
+    --ColorLinkb: hsl(141, 55%, 49%);
+    --ColorLinkr: hsl(0, 55%, 49%);
+    --ebgColor: hsl(100, 56%, 76%);
+}
+
+
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: var(--Colora);
+    font-size: 12px;
+    height: 100%;
+}
+
+header {
+    top: 0px;
+    position: sticky;
+    border-bottom: 1px solid black;
+}
+
+.cb {
+    background-color: var(--Colorc) !important;
+}
+
+#main > div {
+    margin-bottom: 60px !important;
+    margin-top: 30px !important;
+}
+
+footer {
+    background-color: var(--Colorc);
+    width: 100%;
+    padding-top: 10px;
+    border-top: 1px solid black;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    position:fixed;
+}
+
+.about {
+    
+}
+
+.bottom-row{
+    text-align:center;
+    padding:15px;
+}
+
+a.contact-button:link, a.contact-button:visited {
+    background-color: var(--Colora);
+    color: var(--Colorc);
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a.contact-button:hover, a.contact-button:active {
+    background-color: var(--Colorc);
+    color: var(--Colora);
+}
+
+h1{text-align:center;}
+
+.proj{
+    text-align:center;
+    text-transform:uppercase;
+    text-decoration:underline;
+    padding:8px;
+}
+
+.projb{
+    border-bottom: 1px solid black;
+    padding-bottom:32px;
+}
+
+p{
+    text-align:center;
+}
+.proj-links{
+    width: 100%;
+    padding-top: 15px;
+    text-align: center;
+}
+
+
+
