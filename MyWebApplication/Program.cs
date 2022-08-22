@@ -1,4 +1,10 @@
+using System.Globalization;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var cultureInfo = new CultureInfo("en-US");
+CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
 
 builder.Services.AddMvc();
 builder.Services.AddSession(options =>
@@ -53,6 +59,11 @@ app.MapControllerRoute(
     name: "contact",
     pattern: "icontact",
     defaults: new { controller = "Internal", action = "Contact" });
+
+app.MapControllerRoute(
+    name: "doctor",
+    pattern: "fevercheck",
+    defaults: new { controller = "Doctor", action = "FeverCheck" });
 
 
 app.Run();
