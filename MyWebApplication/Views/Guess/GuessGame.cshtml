@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "GuessGame";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1>GuessGame</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 text-center">
+
+        <form asp-action="GuessGame" method="post">
+            <label>Guess a number:</label><br />
+            <input type="text" name="txtGuess" placeholder="Guess a number" /><br /><br />
+            <br />
+            <input type="submit" value="Guess!" />
+        </form>
+
+    </div>
+
+    <div class="col-lg-12 text-center">
+        <br />
+
+       
+            @ViewBag.guessMessage
+
+
+    </div>
+
+</div>

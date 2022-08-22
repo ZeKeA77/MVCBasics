@@ -1,9 +1,10 @@
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddMvc();
+
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(1);
+    options.IdleTimeout = TimeSpan.FromMinutes(10);
 });
 
 var app = builder.Build();
@@ -53,6 +54,12 @@ app.MapControllerRoute(
     name: "contact",
     pattern: "icontact",
     defaults: new { controller = "Internal", action = "Contact" });
+
+//GuessGame
+app.MapControllerRoute(
+    name: "guess",
+    pattern: "guessgame",
+    defaults: new { controller = "Guess", action = "GuessGame" });
 
 
 app.Run();
