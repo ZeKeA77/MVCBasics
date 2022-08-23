@@ -19,7 +19,7 @@ app.MapControllerRoute(
     );
 
 
-//Route for the individual pages
+///Route for the individual pages
 app.MapControllerRoute(
     name: "project",
     pattern: "projects",
@@ -27,13 +27,14 @@ app.MapControllerRoute(
 
 app.MapControllerRoute(
     name: "about",
-    pattern: "iabout",
+    pattern: "about",
     defaults: new { controller = "Home", action = "About" });
 
 app.MapControllerRoute(
     name: "contact",
-    pattern: "icontact",
+    pattern: "contact",
     defaults: new { controller = "Home", action = "Contact" });
+
 
 
 app.Run();
