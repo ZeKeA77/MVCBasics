@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MyWebApplication.Models;
 
 namespace MyWebApplication.Controllers
 {
@@ -15,39 +16,28 @@ namespace MyWebApplication.Controllers
             return View();
         }
 
-
-        [HttpPost] //Get the Guess from the guest and compare to the session
-        public IActionResult GuessGame(int txtGuess)
+        //Create/remove Session
+        public void CreateSession()
         {
-            string guessMessage;
+            HttpContext.Session.Remove("GuessSession");
+            HttpContext.Session.SetString("GuessSession", Convert.ToString(GuessModel.CreateRandomNumber()));
+        }
 
-            if (txtGuess > HttpContext.Session.GetInt32("GuessSession"))
-            {
-                guessMessage = "Sorry, your guess of " + txtGuess + " is to high!";
-            }
+        //Get the Guess from the guest and compare to the session
+        [HttpPost]
+        public IActionResult GuessGame(int txtGuess, int gSession)
+        {
+            gSession = Convert.ToInt32(HttpContext.Session.GetString("GuessSession"));
 
-            else if (txtGuess == HttpContext.Session.GetInt32("GuessSession"))
+            ViewBag.guessMessage = GuessModel.GuessGame(txtGuess, gSession);
+
+            if (txtGuess == gSession)
             {
-                guessMessage = "YES!!! " + txtGuess + " is the right number!";
                 CreateSession();
             }
-
-            else
-            {
-                guessMessage = "Sorry, your guess of " + txtGuess + " is to low!";
-            }
-
-            ViewBag.guessMessage = guessMessage;
 
             return View();
         }
 
-        // Create new Session
-        public void CreateSession()
-        {
-            var rand = new Random();
-            int number = rand.Next(0, 100);
-            HttpContext.Session.SetInt32("GuessSession", number);
-        }
     }
 }
